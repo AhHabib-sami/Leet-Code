@@ -1,0 +1,18 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+
+
+       
+        stack = []
+        dictionary = {')': '(', '}': '{', ']': '['}
+
+        for i in s:
+            if i in dictionary.values():
+                stack.append(i)
+            elif stack and dictionary[i] == stack[-1]:  
+                print(dictionary[i], stack[-1])
+                stack.pop()
+            else:
+                return False
+        return stack == []
+        
